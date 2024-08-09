@@ -3,14 +3,46 @@
  */
 package quiz1sistemasg2;
 
+import java.util.Scanner;
+
 public class App {
     
 
     public static void main(String[] args) {
-        
+        //Scanner
+       Scanner lector = new Scanner(System.in);
+
+        // Datos de entrada
+       String vehiculoEstacionado;
+       int tiempoPermanencia;
+       int estudiante;
+       int resultado;
        
 
+       //Pregunta tipo de vehiculo que estaciona
+
+       System.out.println("¿Que tipo de vehiculo estaciono?");
+       System.out.println("1- Carro(C) 2- Moto(M) 3- Bicicleta(B)");
+       vehiculoEstacionado = lector.nextLine();
+
+       //Pregunta al usuario cuanto tiempo se quedo el vehiculo en el parqueadero
+
+       System.out.println("¿Cuanto tiempo permanecio en el parqueadero?");
+       tiempoPermanencia = lector.nextInt();
+
+       //Pregunta si es estudiante
+
+       System.out.println("Eres estudiante de la UPB? 1.(Si) 2.(No)");
+       estudiante = lector.nextInt();
+
+       resultado = calcularValorHora(vehiculoEstacionado, tiempoPermanencia);
+    
+       System.out.println(resultado);
+
+       }
+
     }
+
 
     /*  Implemente una funcion llamada calcularValorHora que cumpla con las siguientes caracteristicas
         * Recibe: 
@@ -21,7 +53,47 @@ public class App {
         * Controlar errores retornando -1
     */
     //------------------------------------------------------------------
-    
+    public static int calcularValorHora (String vehiculoEstacionado, int horasPermanencia){
+        try {
+
+            int valorDeHora = 0;
+
+            switch (vehiculoEstacionado){
+                case "C": vehiculoEstacionado = "Carro";
+                  if (horasPermanencia > 3){
+                    valorDeHora = horasPermanencia *5000 + ((horasPermanencia -3));
+                  }
+                  else{
+                    valorDeHora = horasPermanencia *5000 ;
+                  }
+                        break;
+
+                case "M": vehiculoEstacionado = "Moto"; 
+                  if (horasPermanencia > 3){
+                    valorDeHora = horasPermanencia *3000 + ((horasPermanencia -3));
+                  }
+                  else {
+                    valorDeHora = horasPermanencia *3000 ;
+                  }
+                    break;
+
+                case "B": vehiculoEstacionado = "Bicicleta"; 
+                  if (horasPermanencia > 3){
+                    valorDeHora = horasPermanencia *1000 + ((horasPermanencia -3));
+                  }
+                  else {
+                    valorDeHora = horasPermanencia *1000 ;
+                  }
+                    break;
+            }
+
+            return valorDeHora;
+            
+        } catch (Exception e) {
+            return -1;
+        }
+            
+    }
 
 
     //------------------------------------------------------------------
@@ -36,7 +108,24 @@ public class App {
         * Controlar errores retornando -1
     */
     //------------------------------------------------------------------
-    
+    public static int calcularDescuento (int valorTotalHoras, int estudiante, int cantidadHoras){
+
+        try {
+
+            switch () {
+                return;
+            }
+
+                
+            }
+
+
+            
+        } catch (Exception e) {
+     
+        }
+            return -1;
+    }
 
 
     //------------------------------------------------------------------
@@ -50,7 +139,11 @@ public class App {
     */
     //------------------------------------------------------------------
     
+    public static int calcularFactura (int valorTotalHoras, int valorDescuento){
 
+        
+    }
 
     //------------------------------------------------------------------
-}
+
+
